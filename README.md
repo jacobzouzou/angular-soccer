@@ -1,0 +1,2 @@
+# Techno
+Contain .net project
