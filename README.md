@@ -1,2 +1,2 @@
 # Techno
-Contain .net project
+Techno is used to save .NET projects
