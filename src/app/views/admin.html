@@ -1,0 +1,22 @@
+<html>
+    <head>
+    </head>    
+    <body>
+        <H3>IP addres: {{IP}}</H3>
+
+        <label>{{md5}}</label>
+        <div>
+            <label>Teams:</label>
+            <br>
+            <label class="text-danger">{{ErrMsg}}</label>
+        </div>
+        <div *ngFor="let team of Teams">
+            <div>
+                <span style="padding: 2px;">{{team.id}} </span>
+                <span style="padding: 2px;">{{team.name}} </span>
+                <span style="padding: 2px;">{{team.type}} </span>
+    
+            </div>
+        </div>
+    </body>
+</html>
