@@ -38,19 +38,9 @@ export class AppAdmin{
         this._webService.callURL(finalUrl).subscribe( (data:string[]) => this.md5= data["md5"]);
     }       
     public getTeams(){
-        // //Get local data
         this._webService.getTeams().subscribe((data:iTeam[])=>{
             this.Teams= data;
         },
         Error => this.ErrMsg = Error.message);
-
-        // //get data from api
-        // this._webService.getTeamsFromApi().subscribe((data:iTeam[])=>{
-        //     this.Teams= data;
-        // },
-        // Error => this.ErrMsg = Error.message);
-    }
-    public getTeamsBis(){
-        this.Teams= teams;
     }
 }

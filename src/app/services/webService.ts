@@ -17,10 +17,10 @@ const queryOptions={
 })
 export class WebService implements InMemoryDbService {
   private _IPURL: string = "http://ip.jsontest.com";
-  private teamsUrl: string = "../../assets/teams.json";
+  private localFileTeamsUrl: string = "../../assets/teams.json";
 
-  //api 
-  public teamsApiUrl="api/teams";
+  //TODO: deploy api url
+  public apiTeamsUrl="http://localhoost:3300/api/teams";
 
   constructor(private _http: HttpClient, private _soccer: SoccerService) {
   }
@@ -45,10 +45,9 @@ export class WebService implements InMemoryDbService {
     return this._http.get(_URL);
   }
   public getTeams(): Observable<iTeam[]> {
-    let teams = this._soccer.getTeams();
-    return this._http.get<iTeam[]>(this.teamsUrl,queryOptions);
+    return this._http.get<iTeam[]>(this.localFileTeamsUrl,queryOptions);
   }
   public getTeamsFromApi():Observable<iTeam[]> {
-    return this._http.get<iTeam[]>(this.teamsApiUrl, queryOptions);
+    return this._http.get<iTeam[]>(this.apiTeamsUrl, queryOptions);
    }
 }
