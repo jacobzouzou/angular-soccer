@@ -9,7 +9,8 @@ import { SoccerService } from './services/soccerService';
 import { WebService } from './services/webService'
 
 @Component({
-    templateUrl: './views/standings.html',    // HTML template name 
+    templateUrl: './views/standings.html',    
+     
     // Set styles for template 
     styles: [` 
               h3 {
@@ -76,9 +77,9 @@ export class AppStandings {
 
         }
     }
-    public getIPAddress(){
-        this._web.getIP().subscribe( (data:string) => this.IPAddr = data["ip"] );
-    }
+    // public getIPAddress(){
+    //     this._web.getIP().subscribe( (data:string) => this.IPAddr = data["ip"] );
+    // }
     private ComputeRankings(schedules=null) {
         var curDate: Date = new Date();
         var TeamAt: number;
