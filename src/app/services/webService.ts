@@ -1,10 +1,17 @@
 import { Injectable, RootRenderer } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http'
+import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http'
 import { SoccerService } from './soccerService';
 import { iTeam } from '../interfaces/teams';
 import { Observable } from 'rxjs';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
+const queryOptions={
+  headers: new  HttpHeaders(
+    {
+      'Access-Control-Allow-Origin':'*',
+      responseType:'json'
+     })
+  }
 @Injectable({
   providedIn:"root"
 })
@@ -34,14 +41,14 @@ export class WebService implements InMemoryDbService {
   public getIP() {
     return this._http.get(this._IPURL);
   }
-  public CallURL(_URL: string) {
+  public callURL(_URL: string) {
     return this._http.get(_URL);
   }
   public getTeams(): Observable<iTeam[]> {
     let teams = this._soccer.getTeams();
-    return this._http.get<iTeam[]>(this.teamsUrl, { responseType: 'json' });
+    return this._http.get<iTeam[]>(this.teamsUrl,queryOptions);
   }
   public getTeamsFromApi():Observable<iTeam[]> {
-    return this._http.get<iTeam[]>(this.teamsApiUrl, {responseType: 'json'});
+    return this._http.get<iTeam[]>(this.teamsApiUrl, queryOptions);
    }
 }
