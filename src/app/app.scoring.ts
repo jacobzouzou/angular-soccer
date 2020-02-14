@@ -40,10 +40,8 @@ export class AppScoring {
         }
     }
     public onRecordScores() {
-        this.MySchedule[this.CurGame - 1].awayScore =
-            Number(this.AwayScore);
-        this.MySchedule[this.CurGame - 1].homeScore =
-            Number(this.HomeScore);
+        this.MySchedule[this.CurGame - 1].awayScore =  Number(this.AwayScore);
+        this.MySchedule[this.CurGame - 1].homeScore =  Number(this.HomeScore);
     }
 
     //private methods
