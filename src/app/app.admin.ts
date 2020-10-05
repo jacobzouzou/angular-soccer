@@ -20,7 +20,7 @@ export class AppAdmin{
    public _MD5URL:string="http://md5.jsontest.com?text=";
 
     constructor( private _titleService:Title, private _webService:WebService) {
-        this._webService=_webService;
+        // this._webService=_webService;
         this._titleService.setTitle("web service");
         this.getIpAddress();
         this.getMD5("AngularRocks");
